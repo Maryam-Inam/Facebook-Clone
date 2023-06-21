@@ -3,12 +3,11 @@ import styles from "../styles/Home.module.css";
 import { getSession } from "next-auth/react";
 import Header from "../components/header/Header";
 import Sidebar from "../components/Sidebar";
-import Feed from "../components/Feed";
+import Feed from "../components/feed/Feed";
 import Widgets from "../components/Widgets";
 import Login from "../components/Login";
 
 export default function Home({ user }) {
-  console.log("here it is", user);
   if (!user) {
     return <Login />;
   } else {
@@ -18,7 +17,7 @@ export default function Home({ user }) {
           <title>Maryams facebook</title>
         </Head>
         <Header />
-        <main>
+        <main className="flex">
           <Sidebar />
           <Feed />
           <Widgets />
@@ -31,7 +30,6 @@ export async function getServerSideProps(context) {
   //get the user
   const session = await getSession(context);
   const user = session.user;
-  console.log("ok", user);
   return {
     props: {
       user,

@@ -10,7 +10,7 @@ import {
 import HeaderIcon from "./HeaderIcon";
 function RightHeader() {
   const { data: session } = useSession();
-  console.log(session);
+  // console.log(session);
   return (
     <div className="flex items-center sm:space-x-2 justify-end">
       {/* profile pic */}
@@ -24,7 +24,7 @@ function RightHeader() {
         layout="fixed"
       />
       <p className="whitespace-nowrap font-semibold pr-3 cursor-pointer">
-        Maryam Inam
+        {session.user.name}
       </p>
       <ViewGridIcon className="icon" />
       <ChatIcon className="icon" />
