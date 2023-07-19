@@ -10,7 +10,8 @@ import {
 import HeaderIcon from "./HeaderIcon";
 function RightHeader() {
   const { data: session } = useSession();
-  // console.log(session);
+  const imageUrl = session?.user?.image;
+  const username = session?.user?.name;
   return (
     <div className="flex items-center sm:space-x-2 justify-end">
       {/* profile pic */}
@@ -18,13 +19,13 @@ function RightHeader() {
         onClick={signOut}
         className="rounded-full cursor-pointer"
         alt=""
-        src={session.user.image}
+        src={imageUrl}
         width={40}
         height={40}
         layout="fixed"
       />
       <p className="whitespace-nowrap font-semibold pr-3 cursor-pointer">
-        {session.user.name}
+        {username}
       </p>
       <ViewGridIcon className="icon" />
       <ChatIcon className="icon" />

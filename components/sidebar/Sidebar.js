@@ -14,10 +14,12 @@ import {
 import SidebarRow from "./SidebarRow";
 function Sidebar() {
   const { data: session } = useSession();
-  // const { data: session, status: sessionStatus } = useSession();
+
+  const imageUrl = session?.user?.image;
+  const username = session?.user?.name;
   return (
     <div className="p-2 mt-5 max-w-[600px] xl:min-w-[300px]">
-      {/* <SidebarRow Icon={session.user.image} title={session.user.name} /> */}
+      <SidebarRow src={imageUrl} title={username} />
       <SidebarRow Icon={UsersIcon} title="Friends" />
       <SidebarRow Icon={UserGroupIcon} title="Groups" />
       <SidebarRow Icon={ShoppingBagIcon} title="Marketplace" />
